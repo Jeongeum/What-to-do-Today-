@@ -1,0 +1,54 @@
+body{
+    background: var(--color-bg);    
+}
+
+.title {
+    width: 600px;
+    height: 300px;
+    background-color: #9FC5E8;
+    border-radius: 90px 90px 0px 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px auto;
+    font-size: 25px;
+}
+
+.input_name {
+    width: 700px;
+    height: 150px;
+    background-color: wheat;
+    border-radius: 90px;
+    margin: auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_name {
+    width: 70%;
+    height: 100%;
+    font-size: 30px;
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    
+}
+
+.input_btn {
+    border: unset;
+    background-color: unset;
+    outline: none;
+    width: 30%;
+}
+
+.input_name button i {
+     width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 100%;
+    background-color: yellowgreen;
+    font-size: 30px;
+    color: white;
+}
