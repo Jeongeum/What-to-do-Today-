@@ -6,10 +6,126 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What to do today?</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <div class="info">
+        <div class="profile">
+            <input type="file" name="profile_img" accept="image/*">
+            <figure>
+                <img src="" alt="">
+            </figure>
+            <h2 class="user"></h2>
+            <button>
+                <i class="fa-solid fa-pen"></i>
+            </button>
+        </div>
+        <div class="weather">
+            <p></p>
+            <p></p>
+            <p></p>
+            <img id="weatherImg" src="" alt="">
+            <p></p>
+            <p></p>
+        </div>
+        <div class="time">
+            <p></p>
+            <p>요일</p>
+            <h3 class="clock"></h3>
+        </div>
+        <!--
+        <div class="calendar">
+            <div class="ctr-box clearfix">
+                <button type="button" title="prev" class="btn-cal prev">
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <span class="cal-month"></span> /
+                <span class="cal-day"></span>
+                <button type="button" title="next" class="btn-cal next">
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+            </div>
+            <table class="cal-table">
+                <thead>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                </thead>
+                <tbody class="cal-body"></tbody>
+            </table>
+        </div>
+    -->
+        <div class="tool">
+            <div class="controls">
+                <div class="controls__range">
+                    <input type="range" id="jsRange" min="0.1" max="5.0" value="2.5" step="0.1">
+                </div>
+                <div class="controls__btns">
+                    <!-- <button id="jsMode">Fill</button>
+                    <button id="jsClear">Clear</button>
+                    <button id="jsSave">Save</button> -->
+                </div>
+                <div class="controls__colors" id="jsColors">
+                    <div class="controls__color jsColor" style="background-color:#2c2c2c"></div>
+                    <div class="controls__color jsColor" style="background-color:white"></div>
+                    <div class="controls__color jsColor" style="background-color:#FF3B30"></div>
+                    <div class="controls__color jsColor" style="background-color:#FF9500"></div>
+                    <div class="controls__color jsColor" style="background-color:#FFCC00"></div>
 
+                    <div class="controls__color jsColor" style="background-color:#4CD963"></div>
+                    <div class="controls__color jsColor" style="background-color:#5AC9FA"></div>
+                    <div class="controls__color jsColor" style="background-color:#0579FF"></div>
+                    <div class="controls__color jsColor" style="background-color:#5856D6"></div>
+                    <div class="controls__color jsColor"
+                        style="background-image:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="todo">
+                <button>
+                    <i class="fa-solid fa-list-ol"></i>
+                </button>
+            </div>
+            <div class="draw">
+                <button>
+                    <i class="fa-solid fa-paintbrush"></i>
+                </button>
+            </div>
+            <div class="toolBtn">
+                <button><i id="jsClear" class="fa-regular fa-file"></i></button>
+                <button><i class="fa-solid fa-pen-nib"></i></button>
+                <button><i class="fa-solid fa-paint-roller"></i></button>
+                <button><i class="fa-solid fa-palette"></i></button>
+                <button><i id="jsSave" class="fa-solid fa-floppy-disk"></i></button>
+
+            </div>
+        </div>
+    </div>
+    <div class="todolist_show">
+    </div>
+    <canvas id="jsCanvas" class="canvas hide"></canvas>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/clock.js"></script>
+    <!--<script src="js/calendar.js"></script>-->
+    <script src="js/draw.js"></script>
 </body>
 
 </html>
