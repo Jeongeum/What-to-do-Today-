@@ -1,7 +1,6 @@
 const todoList = document.querySelector(".todolist_box");
 const todoInput = document.querySelector(".todolist_box input");
 const lists = document.querySelector(".lists");
-
 const TODOLIST_KEY = "TODOLIST";
 
 let todos = [];
@@ -11,6 +10,7 @@ function saveTodos() {
 }
 
 function deleteTodo(event) {
+  console.log(event);
   const li = event.target.parentElement;
   li.remove();
   todos = todos.filter((todo) => todo.id !== parseInt(li.id));
@@ -20,13 +20,30 @@ function deleteTodo(event) {
 function paintTodo(newTodo) {
   const todo = document.createElement("li");
   todo.id = newTodo.id;
-  const span = document.createElement("span");
-  span.innerText = newTodo.text;
-  const button = document.createElement("button");
-  button.innerText = "❌";
-  button.addEventListener("click", deleteTodo);
-  todo.appendChild(span);
-  todo.appendChild(button);
+  todo.setAttribute("class", "item");
+  todo.innerHTML = `
+    <div class="check_btn">
+        <i class="fas fa-check"></i>
+    </div>
+    <span class="item_name">
+        ${newTodo.text}
+    </span>
+    <button class="item_edit">
+        <i class="fas fa-pen"></i>
+    </button>
+    <button class="item_delete">
+        <i class="fas fa-trash"></i>
+    </button>
+    `;
+
+  //deleteBtn.addEventListener("click", deleteTodo);
+  //   const span = document.createElement("span");
+  //   span.innerText = newTodo.text;
+  //   const button = document.createElement("button");
+  //   button.innerText = "❌";
+  //   button.addEventListener("click", deleteTodo);
+  //   todo.appendChild(span);
+  //   todo.appendChild(button);
   lists.appendChild(todo);
 }
 
