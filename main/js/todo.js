@@ -1,7 +1,10 @@
 const todoList = document.querySelector(".todolist_box");
 const todoInput = document.querySelector(".todolist_box input");
 const lists = document.querySelector(".lists");
+
 const TODOLIST_KEY = "TODOLIST";
+const BTNSHOW = "btn_show";
+const savedTodos = localStorage.getItem(TODOLIST_KEY);
 
 let todos = [];
 
@@ -10,8 +13,7 @@ function saveTodos() {
 }
 
 function deleteTodo(event) {
-  console.log(event);
-  const li = event.target.parentElement;
+  const li = event.parentElement;
   li.remove();
   todos = todos.filter((todo) => todo.id !== parseInt(li.id));
   saveTodos();
@@ -22,9 +24,9 @@ function paintTodo(newTodo) {
   todo.id = newTodo.id;
   todo.setAttribute("class", "item");
   todo.innerHTML = `
-    <div class="check_btn">
-        <i class="fas fa-check"></i>
-    </div>
+    <button class="check_btn">
+    <i class="fas fa-check"></i>
+    </button>
     <span class="item_name">
         ${newTodo.text}
     </span>
@@ -47,11 +49,36 @@ function paintTodo(newTodo) {
   lists.appendChild(todo);
 }
 
-function handleTodoSubmit(event) {
-  const target = event.target;
-  event.preventDefault();
-  if (target.matches(".todo_btn")) {
+function checkItem(target) {
+  if (target.matches(".check_btn")) {
+    target.childNodes[1].classList.toggle("icon_show");
+    target.childNodes[1].parentElement.classList.toggle("btn_show");
+    target.nextSibling.nextSibling.classList.toggle("todo_end");
+  } else if (target.matches(".fa-check")) {
+    target.classList.toggle("icon_show");
+    target.parentElement.classList.toggle("btn_show");
+    target.parentElement.nextSibling.nextSibling.classList.toggle("todo_end");
   }
+}
+// function editItem(target) {
+//   if (target.matches(".fa-pen")) {
+//     console.log(target.parentElement);
+//   }
+// }
+
+function removeItem(target) {
+  if (target.matches(".fa-trash")) {
+    deleteTodo(target.parentElement);
+  }
+}
+lists.addEventListener("click", (event) => {
+  let target = event.target;
+  checkItem(target);
+  //editItem(target);
+  removeItem(target);
+});
+function handleTodoSubmit(event) {
+  event.preventDefault();
   const newTodo = todoInput.value;
   console.log(newTodo);
   todoInput.value = "";
@@ -81,8 +108,6 @@ function todoAdd() {
     }
   });
 }
-
-const savedTodos = localStorage.getItem(TODOLIST_KEY);
 
 if (savedTodos !== null) {
   const parsedTodos = JSON.parse(savedTodos);
