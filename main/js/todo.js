@@ -120,7 +120,8 @@ function todoAdd() {
   // + 버튼 클릭 시
   addBtn.addEventListener("click", () => {
     addBtn.classList.toggle("cancelBtn");
-    //handleTodoSubmit(event);
+    todoList.classList.toggle(SHOW);
+    todoList.classList.toggle(HIDE);
   });
 
   // 엔터 버튼 누를 시
@@ -128,6 +129,9 @@ function todoAdd() {
     if (event.keyCode === 13) {
       console.log("엔터!");
       handleTodoSubmit(event);
+      addBtn.classList.remove("cancelBtn");
+      todoList.classList.remove(SHOW);
+      todoList.classList.add(HIDE);
     }
   });
 }

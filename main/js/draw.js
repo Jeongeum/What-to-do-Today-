@@ -10,6 +10,8 @@ const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
+const pen = document.getElementById("jsPen");
+const paint = document.getElementById("jsPaint");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 const ClearBtn = document.getElementById("jsClear");
@@ -68,13 +70,13 @@ function handleRangeChange(event) {
 }
 
 // 채우기
-function handleModeClick() {
-  if (filling === true) {
+function handleModeClick(e) {
+  if (e.target === pen) {
+    console.log("펜");
     filling = false;
-    mode.innerText = "fill";
   } else {
+    console.log("롤러");
     filling = true;
-    mode.innerText = "paint";
   }
 }
 
@@ -114,8 +116,9 @@ if (range) {
   range.addEventListener("input", handleRangeChange);
 }
 
-if (mode) {
-  mode.addEventListener("click", handleModeClick);
+if (pen && paint) {
+  pen.addEventListener("click", handleModeClick);
+  paint.addEventListener("click", handleModeClick);
 }
 
 if (saveBtn) {
