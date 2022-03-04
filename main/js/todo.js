@@ -1,6 +1,7 @@
 const todoList = document.querySelector(".todolist_box");
 const todoInput = document.querySelector(".todolist_box input");
 const lists = document.querySelector(".lists");
+const addBtn = document.querySelector(".todo_btn");
 
 const TODOLIST_KEY = "TODOLIST";
 const BTNSHOW = "btn_show";
@@ -60,12 +61,35 @@ function checkItem(target) {
     target.parentElement.nextSibling.nextSibling.classList.toggle("todo_end");
   }
 }
-// function editItem(target) {
-//   if (target.matches(".fa-pen")) {
-//     console.log(target.parentElement);
-//   }
-// }
 
+/*function editItem(target) {
+  if (target.matches(".fa-pen")) {
+    const btn = target.parentNode;
+    const li = btn.parentNode;
+    const span = li.querySelector(".item_name");
+    const editInput = document.createElement("input");
+    editInput.setAttribute("class", "edit_text");
+    li.appendChild(editInput);
+    span.classList.add(HIDE);
+    editInput.addEventListener("keydown", (event) => {
+      const editText = event.target.value;
+      console.log(editText);
+      if (event.keyCode === 13) {
+        span.innerText = editInput.value;
+        editInput.value = "";
+        editInput.classList.add(HIDE);
+        span.classList.remove(HIDE);
+        span.classList.add(SHOW);
+
+        //saveTodos(span.parentElement)
+        console.log(JSON.parse(savedTodos).text);
+        console.log(JSON.parse(savedTodos));
+      }
+    });
+  }
+}*/
+
+//function editText() {}
 function removeItem(target) {
   if (target.matches(".fa-trash")) {
     deleteTodo(target.parentElement);
@@ -77,6 +101,7 @@ lists.addEventListener("click", (event) => {
   //editItem(target);
   removeItem(target);
 });
+
 function handleTodoSubmit(event) {
   event.preventDefault();
   const newTodo = todoInput.value;
@@ -93,11 +118,9 @@ function handleTodoSubmit(event) {
 
 function todoAdd() {
   // + 버튼 클릭 시
-  todoList.addEventListener("click", (event) => {
-    const target = event.target;
-    if (target.matches(".todo_btn")) {
-      handleTodoSubmit(event);
-    }
+  addBtn.addEventListener("click", () => {
+    addBtn.classList.toggle("cancelBtn");
+    //handleTodoSubmit(event);
   });
 
   // 엔터 버튼 누를 시
