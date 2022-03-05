@@ -1,0 +1,446 @@
+body {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    background-color: var(--color-bg);
+    margin: 45px auto 20px;
+    max-width: 1080px;
+    height: 100%;
+    column-gap: 20px;
+}
+
+.info {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-rows: 2fr 1.5fr 1.3fr 250px;
+    grid-template-columns: 1.5fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 25px;
+    
+}
+
+.profile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+    grid-column : 1/3;
+    display: flex;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    background-color: var(--color-main);
+    align-items: center;
+    justify-content: center;
+}
+
+
+.profile figure {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    position: absolute;
+    right: 7%;
+    text-align: center;
+    line-height: 150px;
+    font-size: 25px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.profile .user {
+    position: absolute;
+    left: 7%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.profile_img {
+display: none;
+}
+
+.profileImg_btn img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.profileName_input {
+    display: none;
+    background-color: #fff;
+    border: unset;
+    outline: unset;
+    width: 40%;
+    height: 70px;
+    border-radius: 20px;
+    position: absolute;
+    left: 7%;
+    font-size: 25px;
+    padding: 0 10px;
+}
+.weather {
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background-color: var(--color-light-main);
+    color: white;
+}
+
+.weather p:first-child {
+    font-size: 20px;
+    grid-column : 1/3;
+}
+
+.weather p:nth-child(2) {
+    font-size: 14px;
+    grid-column : 1/3;
+}
+
+.weather p:nth-child(3) {
+    font-size: 35px;
+    font-weight: bold;
+    grid-column : 1/3;
+}
+
+.weather img {
+    grid-column : 1/2;
+    grid-row: 4/6;
+    width: 100px;
+    height: 100px;
+}
+
+.weather p:nth-child(5), p:last-child {
+    font-size: 13px;
+}
+.time {
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 50px;
+    text-align: right;
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background-color: var(--color-light-main);
+    color: white;
+}
+
+.time .clock {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+/* 달력 
+.calendar {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    grid-column : 1/3;
+}
+
+.ctr-box {
+    margin: 20px;
+}
+
+.cal-table {
+    margin: 20px;
+}*/
+
+/* 그리기 컨트롤 */
+.tool {
+    width: 100%;
+    height: 100%;
+    
+    grid-column : 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.controls {
+    width: 100%;
+    height: 100%;
+    
+    margin: 20px;
+    display: none;
+}
+
+/* .tool_trans {
+    display: block;
+    transform: scale(1);
+    transition: transform .3s ease-in-out;
+} */
+.controls .controls__btns {
+    margin-bottom: 30px;
+}
+
+.controls__btns button {
+    all:unset;
+    cursor: pointer;
+    background-color: white;
+    padding: 5px 0px;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 12px;
+
+}
+
+.controls__btns button:active {
+    transform:scale(0.98);
+}
+
+.controls .controls__colors {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-around;
+}
+
+.controls__colors .controls__color {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 10px 0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    
+}
+
+.controls .controls__range {
+    margin: 30px;
+}
+
+/* 목록 */
+.list {
+    width: 100%;
+    height: 100%;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.list button {
+    border: none;
+    background-color: unset;
+    
+}
+
+.list button i {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 60px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    
+}
+
+.list button i:hover {
+    background-color: var(--color-main);
+    color: white;
+}
+.toolBtn {
+    /* display: none; */
+    opacity: 0;
+    transition: all .6s;
+}
+
+.toolBtn .btn_focuse {
+    background-color: var(--color-main);
+    color: white;
+}
+
+.trans {
+    opacity: 1;
+    transition: all .6s;
+}
+/* 투두리스트 보여주기*/
+.todolist_show {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    
+}
+
+.todolist_box {
+    width: 85%;
+    height: 70px;
+    background-color: var(--color-bg);
+    border-radius: 20px;
+    margin: auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    right: 3%;
+    bottom: 0;
+    margin-bottom: 20px;
+    z-index: 0;
+}
+
+
+.todolist_box input {
+    width: 70%;
+    height: 100%;
+    font-size: 20px;
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    
+}
+
+
+.add_list {
+    border: unset;
+    background-color: unset;
+    outline: none;
+    width: 15%;
+    position: absolute;
+    bottom: 3.5%;
+    right: 5%;
+}
+.add_list .todo_btn {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 100%;
+    background-color: var(--color-main);
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.add_list .todo_btn:hover {
+    background-color: #ffb261;
+}
+.add_list .cancelBtn {
+    background: #ff6347;
+    transform: rotate(45deg);
+    transition: 0.125s all ease-in;
+}
+
+.add_list .cancelBtn:hover {
+    background-color: #fc7e68;
+}
+
+
+/* 투두리스트 하나하나 */
+
+.lists {
+    margin: 40px;
+}
+
+.item {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.check_btn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 100%;
+    background-color: white;
+    text-align: center;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn_show {
+    border: 1px solid var(--color-main);
+}
+.icon_show {
+    display: contents;
+    color: var(--color-main);
+}
+
+.todo_end {
+    color: var(--color-dark-gray)
+}
+/* .lists .item_edit .item_delete {
+    border: unset;
+    background-color: unset;
+    outline: none;
+    color: var(--color-dark-gray);
+} */
+
+
+.item_edit {
+    position: absolute;
+    right: 15%;
+    border: unset;
+    background-color: unset;
+    outline: none;
+    color: var(--color-dark-gray);
+}
+
+.item_edit i {
+    cursor: pointer;
+}
+.item_edit:hover {
+    color: rgba(250, 71, 71, 0.836)
+}
+.item_delete {
+    position: absolute;
+    right: 5%;
+    border: unset;
+    background-color: unset;
+    outline: none;
+    color: var(--color-dark-gray);
+}
+
+.item_delete i {
+    cursor: pointer;
+}
+.item_delete:hover {
+    color: rgba(250, 71, 71, 0.836)
+}
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+
+/* 캔버스 */
+.canvas {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}

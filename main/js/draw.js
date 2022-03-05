@@ -1,3 +1,4 @@
+const list = document.querySelector(".list");
 const todo = document.querySelector(".todo");
 const draw = document.querySelector(".draw");
 const tool = document.querySelector(".tool");
@@ -15,7 +16,7 @@ const paint = document.getElementById("jsPaint");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 const ClearBtn = document.getElementById("jsClear");
-
+let color = "rgb(0,0,0)";
 const HIDDEN_CLASSNAME = "hidden";
 const HIDE = "hide";
 const SHOW = "show";
@@ -58,9 +59,17 @@ function onMouseMove(event) {
 }
 
 function changeColor(event) {
-  const color = event.target.style.backgroundColor;
+  if (!event.target.classList.contains("randomColor")) {
+    color = event.target.style.backgroundColor;
+  } else {
+    color = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(
+      Math.random() * 255
+    )},${Math.floor(Math.random() * 255)})`;
+  }
+
   ctx.strokeStyle = color; // 선의 색을 팔레트에서 클릭한 색으로 바꾼다.
   ctx.fillStyle = color; // 채우기 색과 선의 색이 같아지도록 한다.
+  pen.style.color = color;
 }
 
 // 선의 굵기
@@ -134,8 +143,14 @@ function handleToolTrans() {
   canvas.classList.add(SHOW);
   todoListShow.classList.remove(SHOW);
   todoListShow.classList.add(HIDE);
-  toolBtn.classList.toggle("show");
+  //toolBtn.classList.toggle("show");
   toolBtn.classList.toggle("trans");
+
+  // draw 버튼 눌렀을 때 팔레트가 계속 보이는 것을 막음
+  if (controls.classList !== HIDE) {
+    controls.classList.remove(SHOW);
+    controls.classList.add(HIDE);
+  }
 }
 
 function handleTodo() {
@@ -143,17 +158,59 @@ function handleTodo() {
   todoListShow.classList.add(SHOW);
   canvas.classList.remove(SHOW);
   canvas.classList.add(HIDE);
-
-  //toolBtn.classList.remove(SHOW);
   controls.classList.add(HIDE);
 }
 
 function handlePalette() {
   if (controls.className === HIDE || true) {
-    //controls.classList.remove(HIDE);
+    controls.classList.toggle(HIDE);
     controls.classList.toggle("show");
   }
 }
+
+/* list 버튼 클릭 시 */
+function handleToolColor(event) {
+  const target = event.target;
+  /*
+  switch (target) {
+    case target.matches(".fa-pen-nib"):
+      console.log("펜 색깔");
+      target.classList.toggle("btn_focuse");
+      paint.classList.remove("btn_focuse");
+      palette.classList.remove("btn_focuse");
+      break;
+    case target.matches(".fa-paint-roller"):
+      console.log("롤러 색깔");
+      target.classList.toggle("btn_focuse");
+      pen.classList.remove("btn_focuse");
+      palette.classList.remove("btn_focuse");
+      break;
+    case target.matches(".fa-palette"):
+      target.classList.toggle("btn_focuse");
+      pen.classList.remove("btn_focuse");
+      paint.classList.remove("btn_focuse");
+      break;
+  } 
+  */
+  if (target.matches(".fa-pen-nib")) {
+    target.classList.toggle("btn_focuse");
+    paint.classList.remove("btn_focuse");
+    palette.classList.remove("btn_focuse");
+  } else if (target.matches(".fa-paint-roller")) {
+    target.classList.toggle("btn_focuse");
+    pen.classList.remove("btn_focuse");
+    palette.classList.remove("btn_focuse");
+  } else if (target.matches(".fa-palette")) {
+    target.classList.toggle("btn_focuse");
+    pen.classList.remove("btn_focuse");
+    paint.classList.remove("btn_focuse");
+  } else {
+    pen.classList.remove("btn_focuse");
+    paint.classList.remove("btn_focuse");
+    palette.classList.remove("btn_focuse");
+  }
+}
+list.addEventListener("click", handleToolColor);
 draw.addEventListener("click", handleToolTrans);
 todo.addEventListener("click", handleTodo);
 palette.addEventListener("click", handlePalette);
