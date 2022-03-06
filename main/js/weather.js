@@ -6,20 +6,21 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const city = document.querySelector(".weather p:first-child");
-      const description = document.querySelector(".weather p:nth-child(2)");
-      const weather = document.querySelector(".weather p:nth-child(3)");
+      console.log(data);
       let weatherImg = document.getElementById("weatherImg");
       let Icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-      const tempMax = document.querySelector(".weather p:nth-child(5)");
-      const tempMin = document.querySelector(".weather p:last-child");
+      const weather = document.querySelector(".weather p:nth-child(2)");
+      const temp = document.querySelector(".weather sub:nth-child(3)");
+      const city = document.querySelector(".weather p:nth-child(4)");
+
+      const description = document.querySelector(".weather p:last-child");
 
       city.innerText = data.name;
-      description.innerText = data.weather[0].description;
+      description.innerText = data.weather[0].main;
       weather.innerText = `${data.main.temp}°`;
       weatherImg.src = Icon;
-      tempMax.innerText = `최고:${data.main.temp_max}°`;
-      tempMin.innerText = `최저:${data.main.temp_min}°`;
+      temp.innerText = `최고:${data.main.temp_max}° 최저:${data.main.temp_min}°`;
+      //tempMin.innerText = `최저:${data.main.temp_min}°`;
     });
 }
 
