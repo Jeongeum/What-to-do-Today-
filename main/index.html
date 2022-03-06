@@ -23,15 +23,16 @@
                 <i class="fa-solid fa-user-plus"></i>
             </figure>
             <h2 class="user"></h2>
-            <input type="text" class="profileName_input">
+            <input type="text" class="profileName_input" maxlength="12">
+
         </div>
         <div class="weather">
-            <p></p>
-            <p></p>
-            <p></p>
+
             <img id="weatherImg" src="" alt="">
-            <p></p>
-            <p></p>
+            <p>weather</p><sub>max/min</sub>
+            <p>city</p>
+            <p>description</p>
+
         </div>
         <div class="time">
             <h3 class="clock"></h3>
@@ -79,6 +80,11 @@
                     <i class="fa-solid fa-paintbrush"></i>
                 </button>
             </div>
+            <div>
+                <button class="closed">
+                    <i class="fa-solid fa-door-closed"></i>
+                </button>
+            </div>
             <div class="toolBtn">
                 <button><i id="jsClear" class="fa-regular fa-file"></i></button>
                 <button><i id="jsPen" class="fa-solid fa-pen-nib"></i></button>
@@ -116,6 +122,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <div class="todolist_show">
         <ul class="lists">

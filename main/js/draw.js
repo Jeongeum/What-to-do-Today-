@@ -6,6 +6,8 @@ const toolBtn = document.querySelector(".toolBtn");
 const todoListShow = document.querySelector(".todolist_show");
 const controls = document.querySelector(".controls");
 const palette = document.querySelector(".fa-palette");
+const closed = document.querySelector(".closed");
+
 /* 캔버스 */
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
@@ -168,6 +170,12 @@ function handlePalette() {
   }
 }
 
+function handleClosed() {
+  console.log("뒤로가기");
+  document.location.href = "/index.html";
+  localStorage.removeItem(USERNAME_KEY);
+}
+
 /* list 버튼 클릭 시 */
 function handleToolColor(event) {
   const target = event.target;
@@ -210,6 +218,8 @@ function handleToolColor(event) {
     palette.classList.remove("btn_focuse");
   }
 }
+
+closed.addEventListener("click", handleClosed);
 list.addEventListener("click", handleToolColor);
 draw.addEventListener("click", handleToolTrans);
 todo.addEventListener("click", handleTodo);
