@@ -1,5 +1,5 @@
-const calendar = document.querySelector(".time p:first-child");
-let weekDay = document.querySelector(".time p:nth-child(2)");
+const calendar = document.querySelector(".time div:nth-child(2)");
+let weekDay = document.querySelector(".time div:nth-child(3)");
 const clock = document.querySelector("h3.clock");
 
 function getClock() {
@@ -12,9 +12,16 @@ function getClock() {
 
   const WEEKDAY = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   let week = WEEKDAY[dateDefine.getDay()];
+
+  clock.innerText = `${hours}:${minutes} `;
   calendar.innerText = `${year}.${month}.${date}`;
+
   weekDay.innerText = week;
-  clock.innerText = `${hours}:${minutes}`;
+  if (week === "SUN") {
+    weekDay.style.color = "red";
+  } else if (week === "SAT") {
+    weekDay.style.color = "blue";
+  }
 }
 
 //setInterval(sayHello, 5000); 5초 후 마다 함수 실행
