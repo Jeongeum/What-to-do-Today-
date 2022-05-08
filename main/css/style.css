@@ -27,7 +27,7 @@ body {
     display: flex;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
     border-radius: 50px;
-    background-color: var(--color-main);
+    background-color: var(--color-light-main);
     align-items: center;
     justify-content: center;
 }
@@ -89,7 +89,7 @@ display: none;
     align-items: center;
     justify-items: center;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
-    background-color: var(--color-light-main);
+    background-color: var(--color-main);
     color: white;
     font-size: 13px;
 }
@@ -137,7 +137,7 @@ display: none;
     align-items: center;
     justify-items: center;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-    background-color: #94b9de;
+    background-color: var(--color-main);
     color: white;
 }
 
@@ -160,6 +160,7 @@ display: none;
     align-self: start;
     padding-top: 30px;
     padding-left: 70px;
+    font-weight: 700;
 }
 
 /* 달력 
@@ -314,7 +315,7 @@ display: none;
 .todolist_box {
     width: 85%;
     height: 70px;
-    background-color: var(--color-bg);
+    background-color: var(--color-light-grey);
     border-radius: 20px;
     margin: auto;
     padding: 0 30px;
@@ -346,7 +347,7 @@ display: none;
     outline: none;
     width: 15%;
     position: absolute;
-    bottom: 3.5%;
+    bottom: 3.2%;
     right: 5%;
 }
 .add_list .todo_btn {
@@ -358,19 +359,21 @@ display: none;
     font-size: 20px;
     color: white;
     cursor: pointer;
+    transform: rotate(0deg);
+    transition: 0.125s all ease-in;
 }
 
 .add_list .todo_btn:hover {
-    background-color: #85d9af;
+    background-color: var(--color-light-main);
 }
 .add_list .cancelBtn {
-    background: #ff6347;
+    background: #fc585a;
     transform: rotate(45deg);
     transition: 0.125s all ease-in;
 }
 
 .add_list .cancelBtn:hover {
-    background-color: #fc7e68;
+    background-color: #fa6a6d;
 }
 
 

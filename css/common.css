@@ -1,11 +1,11 @@
 :root{
     /* color #EDEEF2; */
-    --color-bg:#f6f9fc;
+    --color-bg:#f8f9fd;
     --color-dark-gray: #bfc1c2;
-    --color-light-grey:#e2e5e6; /*채팅창*/
+    --color-light-grey:#ededf0; /*채팅창*/
     --color-black:#111213;
-    --color-main:#67D09B;   /*메인 컬러*/
-    --color-light-main:#94b9de;
+    --color-main:#7d93d5;   /*메인 컬러*/
+    --color-light-main:#b7c3e8;
 
     /* font-size */
     --font-1:10px; 
