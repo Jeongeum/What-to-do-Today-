@@ -172,7 +172,7 @@ function handlePalette() {
 
 function handleClosed() {
   console.log("뒤로가기");
-  document.location.href = "/index.html";
+  document.location.href = "../index.html";
   localStorage.removeItem(USERNAME_KEY);
 }
 
