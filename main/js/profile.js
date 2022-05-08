@@ -4,6 +4,7 @@ const usernameInput = document.querySelector(".profileName_input");
 const profileBtn = document.querySelector(".profileImg_btn");
 const profileInput = document.querySelector(".profile_img");
 const profileIcon = document.querySelector(".fa-user-plus");
+const img = document.querySelector(".profileImg_btn img");
 const fileTypes = [
   "image/apng",
   "image/bmp",
@@ -51,7 +52,6 @@ profileBtn.addEventListener("click", () => {
 
 function handleProfileImg() {
   const currentFiles = profileInput.files;
-
   if (profileBtn.children.length > 0) {
     // 프로필 사진이 두개이면 처음 사진을 지운다.
     localStorage.removeItem(PROFILE_IMG);
@@ -75,8 +75,9 @@ function handleProfileImg() {
     for (const file of currentFiles) {
       if (validFileType(file)) {
         const reader = new FileReader();
+        console.log(reader);
         reader.addEventListener("load", () => {
-          localStorage.setItem(PROFILE_IMG, reader.result);
+          localStorage.setItem(PROFILE_IMG, file.name);
           loadImgUrl(reader.result);
           console.log(file);
         });
@@ -90,7 +91,7 @@ function handleProfileImg() {
 
 function loadImgUrl(DataUrl) {
   const image = document.createElement("img");
-  profileIcon.remove();
+  //profileIcon.remove()
   profileBtn.appendChild(image);
   image.src = DataUrl;
 }
@@ -98,6 +99,6 @@ function loadImgUrl(DataUrl) {
 function validFileType(file) {
   return fileTypes.includes(file.type);
 }
-
+console.log(img.src);
 profileInput.addEventListener("change", handleProfileImg);
 user.addEventListener("click", handleUserNameInput);

@@ -1,0 +1,21 @@
+:root{
+    /* color #EDEEF2; */
+    --color-bg:#f6f9fc;
+    --color-dark-gray: #bfc1c2;
+    --color-light-grey:#e2e5e6; /*채팅창*/
+    --color-black:#111213;
+    --color-main:#67D09B;   /*메인 컬러*/
+    --color-light-main:#94b9de;
+
+    /* font-size */
+    --font-1:10px; 
+    --font-2:13px; 
+    --font-3:16px;
+    --font-4:20px;  
+    --font-5:26px;  
+    --font-6:33px;  
+    --font-7:42px;  
+    /* shadow */
+    --box-shadow:0 3px 6px rgba(0, 0, 0, .16);
+    --box-shadow-two:0 3px 6px rgba(0, 0, 0, .3);
+}
