@@ -19,7 +19,7 @@ const fileTypes = [
 ];
 
 const USERNAME_KEY = "user";
-const PROFILE_IMG = "userImg";
+const PROFILE_IMG = "profile_IMG";
 // const HIDDEN_CLASSNAME = "hidden";
 // const HIDE = "hide";
 // const SHOW = "show";
@@ -55,18 +55,8 @@ function handleProfileImg() {
   if (profileBtn.children.length > 0) {
     // 프로필 사진이 두개이면 처음 사진을 지운다.
     localStorage.removeItem(PROFILE_IMG);
-    profileBtn.children[0].remove();
+    //profileBtn.children[0].remove();
   }
-
-  //   if (profileInput.files[0]) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       localStorage.setItem(PROFILE_IMG, reader.result);
-  //       loadImgUrl(reader.result);
-  //     };
-
-  //     reader.readAsDataURL(profileInput.files[0]);
-  //   }
 
   if (currentFiles.length === 0) {
     alert("No files currently selected for upload");
@@ -77,7 +67,7 @@ function handleProfileImg() {
         const reader = new FileReader();
         console.log(reader);
         reader.addEventListener("load", () => {
-          localStorage.setItem(PROFILE_IMG, file.name);
+          localStorage.setItem(PROFILE_IMG, reader.result);
           loadImgUrl(reader.result);
           console.log(file);
         });
@@ -90,10 +80,10 @@ function handleProfileImg() {
 }
 
 function loadImgUrl(DataUrl) {
-  const image = document.createElement("img");
-  //profileIcon.remove()
-  profileBtn.appendChild(image);
-  image.src = DataUrl;
+  // const image = document.createElement("img");
+  // //profileIcon.remove()
+  // profileBtn.appendChild(image);
+  img.src = DataUrl;
 }
 
 function validFileType(file) {
@@ -102,3 +92,10 @@ function validFileType(file) {
 console.log(img.src);
 profileInput.addEventListener("change", handleProfileImg);
 user.addEventListener("click", handleUserNameInput);
+
+const savedImg = localStorage.getItem(PROFILE_IMG);
+// 저장된 사진이 없으면 기본이미지 나옴
+if (savedImg !== null) {
+  console.log(savedImg);
+  loadImgUrl(savedImg);
+}
