@@ -31,22 +31,12 @@ function paintTodo(newTodo) {
     <span class="item_name">
         ${newTodo.text}
     </span>
-    <button class="item_edit">
-        <i class="fas fa-pen"></i>
-    </button>
+    
     <button class="item_delete">
         <i class="fas fa-trash"></i>
     </button>
     `;
 
-  //deleteBtn.addEventListener("click", deleteTodo);
-  //   const span = document.createElement("span");
-  //   span.innerText = newTodo.text;
-  //   const button = document.createElement("button");
-  //   button.innerText = "❌";
-  //   button.addEventListener("click", deleteTodo);
-  //   todo.appendChild(span);
-  //   todo.appendChild(button);
   lists.appendChild(todo);
 }
 
@@ -62,34 +52,6 @@ function checkItem(target) {
   }
 }
 
-/*function editItem(target) {
-  if (target.matches(".fa-pen")) {
-    const btn = target.parentNode;
-    const li = btn.parentNode;
-    const span = li.querySelector(".item_name");
-    const editInput = document.createElement("input");
-    editInput.setAttribute("class", "edit_text");
-    li.appendChild(editInput);
-    span.classList.add(HIDE);
-    editInput.addEventListener("keydown", (event) => {
-      const editText = event.target.value;
-      console.log(editText);
-      if (event.keyCode === 13) {
-        span.innerText = editInput.value;
-        editInput.value = "";
-        editInput.classList.add(HIDE);
-        span.classList.remove(HIDE);
-        span.classList.add(SHOW);
-
-        //saveTodos(span.parentElement)
-        console.log(JSON.parse(savedTodos).text);
-        console.log(JSON.parse(savedTodos));
-      }
-    });
-  }
-}*/
-
-//function editText() {}
 function removeItem(target) {
   if (target.matches(".fa-trash")) {
     deleteTodo(target.parentElement);
@@ -98,7 +60,6 @@ function removeItem(target) {
 lists.addEventListener("click", (event) => {
   let target = event.target;
   checkItem(target);
-  //editItem(target);
   removeItem(target);
 });
 
