@@ -174,32 +174,13 @@ function handleClosed() {
   console.log("뒤로가기");
   document.location.href = "../index.html";
   localStorage.removeItem(USERNAME_KEY);
+  localStorage.removeItem(TODOLIST_KEY);
 }
 
 /* list 버튼 클릭 시 */
 function handleToolColor(event) {
   const target = event.target;
-  /*
-  switch (target) {
-    case target.matches(".fa-pen-nib"):
-      console.log("펜 색깔");
-      target.classList.toggle("btn_focuse");
-      paint.classList.remove("btn_focuse");
-      palette.classList.remove("btn_focuse");
-      break;
-    case target.matches(".fa-paint-roller"):
-      console.log("롤러 색깔");
-      target.classList.toggle("btn_focuse");
-      pen.classList.remove("btn_focuse");
-      palette.classList.remove("btn_focuse");
-      break;
-    case target.matches(".fa-palette"):
-      target.classList.toggle("btn_focuse");
-      pen.classList.remove("btn_focuse");
-      paint.classList.remove("btn_focuse");
-      break;
-  } 
-  */
+
   if (target.matches(".fa-pen-nib")) {
     target.classList.toggle("btn_focuse");
     paint.classList.remove("btn_focuse");
