@@ -80,9 +80,6 @@ function handleProfileImg() {
 }
 
 function loadImgUrl(DataUrl) {
-  // const image = document.createElement("img");
-  // //profileIcon.remove()
-  // profileBtn.appendChild(image);
   img.src = DataUrl;
 }
 
